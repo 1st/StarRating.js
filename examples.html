@@ -1,0 +1,32 @@
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery.StarRating.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#example1').StarRating();
+
+        $('#example2').StarRating({
+            vote: 4,
+            callback: function(star){
+                window.location.hash = '#' + $(star).data('vote');
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+
+    <h1>StarRating.js plugin for jQuery</h1>
+
+
+    <h3>Simple example</h3>
+
+    <div id="example1"></div>
+
+
+    <h3>Selected 4 stars + callback</h3>
+
+    <div id="example2"></div>
+
+</body>
+</html>
