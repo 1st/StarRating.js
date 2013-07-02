@@ -44,14 +44,8 @@
 
             // This is the easiest way to have default options.
             this.opts = $.extend({}, $.fn.StarRating.defaults, options);
-            // $(this).data('settings', this.opts);
-
-            // $(this).css('padding', '7px');
 
             // set initial rating
-            // this._show_stars();
-            // $('<img />', { src : icon, alt: i, title: title }).appendTo(this);
-            // $("p").clone()
             var element = $('<A href="#" />').css({
                 'display': 'block',
                 'width': '16px',
@@ -66,15 +60,13 @@
                 methods._hover.apply(container, [this, false]);
             });
 
+            // insert 5 stars and handle actions on these stars
             for (var n=1; n<=5; n++) {
                 var el = element.clone().data('vote', n);
                 $(this).append(el);
                 el.on('mouseenter', function() {
                     methods._hover.apply(container, [this, true]);
                 })
-                // .on('mouseleave', function() {
-                //     methods._hover.apply(container, [this, false]);
-                // })
                 .on('click', function(el) {
                     methods._click.apply(container, [this]);
                     return false;
